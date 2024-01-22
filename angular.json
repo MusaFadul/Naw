@@ -3,5 +3,137 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "soft-click-lib": {
+      "projectType": "library",
+      "root": "projects/soft-click-lib",
+      "sourceRoot": "projects/soft-click-lib/src",
+      "prefix": "sfc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/soft-click-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/soft-click-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/soft-click-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/soft-click-lib/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "naw": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/naw",
+      "sourceRoot": "projects/naw/src",
+      "prefix": "naw",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/naw",
+            "index": "projects/naw/src/index.html",
+            "main": "projects/naw/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/naw/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/naw/src/favicon.ico",
+              "projects/naw/src/assets"
+            ],
+            "styles": [
+              "projects/naw/src/styles.scss",
+			  "projects/soft-click-lib/src/lib/theme/prebuilt/sfc-default-theme.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "naw:build:production"
+            },
+            "development": {
+              "browserTarget": "naw:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "naw:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/naw/tsconfig.spec.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/naw/src/favicon.ico",
+              "projects/naw/src/assets"
+            ],
+            "styles": [
+              "projects/naw/src/styles.scss",
+			  "projects/soft-click-lib/src/lib/theme/prebuilt/sfc-default-theme.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
   }
 }

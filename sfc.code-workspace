@@ -1,0 +1,21 @@
+{ 
+  "folders": [
+    {
+	  "name":"SFc",
+      "path": "projects"
+    }
+  ],
+  "settings": {
+    "git.ignoreLimitWarning": true,
+    "files.exclude": {
+      "dist": true,
+      "node_modules": true,
+      ".angular": true, 
+      "pnpm-lock.yaml": true,
+      ".npmrc": true, 
+      ".npmrc.dev" : true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  }
+}

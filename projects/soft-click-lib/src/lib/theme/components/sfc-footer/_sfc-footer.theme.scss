@@ -1,0 +1,16 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@import "@angular/material/theming";
+
+@mixin sfc-footer-theme($theme) {
+  sfc-footer {
+    .navbar-footer {
+      background: map.get(map.get($theme, primary), 500);
+    }
+  }
+}
+
+@mixin ctn-accordion-typography($typography) {
+  sfc-footer {
+  }
+}

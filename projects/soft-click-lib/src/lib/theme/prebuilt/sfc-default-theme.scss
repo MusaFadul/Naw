@@ -1,0 +1,15 @@
+@use "sass:map";
+@use "@angular/material" as mat;
+@use "../all-theme" as sfc;
+//@import "../../typography/config";
+@import "../default.theme.scss";
+
+/* Apply the defualt sfc design for angular material components */
+@include mat.core();
+//@include mat.all-component-typographies($default-typography);
+@include mat.all-component-themes($sfc-default-theme);
+
+/* Apply tthe defualt sfc design  all defined ctn/components */
+@include sfc.sfc-all-component-theme(
+  $sfc-default-theme
+); //@include sfc.all-themes($sfc-default-theme, $sfc-default-typography)

@@ -1,0 +1,320 @@
+﻿/* Very basic style variables, which are mostly retrieved from the style guide
+ * @important: Do never import some other styles, besides maybe variables in
+ * here to avoid huge style sizes.
+*/
+
+$fonts: "Source Sans Pro", "Helvetica", "Arial", sans-serif;
+
+// breakpoints
+$mobile-xs-width: 380px; // only for some special cases
+$mobile-width: 576px;
+$tablet-width: 1367px;
+$desktop-width: 1367px;
+$mobile-sm-height: 178px;
+$mobile-md-height: 278px;
+$mobile-xl-height: 320px;
+
+//paddings
+$standard-pd: 15px;
+
+$dialog-padding: 30px;
+$dialog-padding-mobile: 15px;
+
+// max width for details pages
+@mixin details-max-width {
+  margin: auto;
+  max-width: 1276px;
+  @content;
+}
+
+@mixin mobile-xs-width {
+  @media (min-width: 0px) and (max-width: #{$mobile-xs-width - 1px}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media (min-width: 0px) and (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin not-mobile {
+  @media (min-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$mobile-width}) and (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$tablet-width}) {
+    @content;
+  }
+}
+
+@mixin not-desktop {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+// font styles as defined in the style guide
+$nunito: "Nunito", sans-serif;
+@mixin nunito-regular {
+  font-family: $nunito;
+  font-weight: normal;
+}
+
+$font-weight-bold: 700;
+@mixin nunito-bold {
+  font-family: $nunito;
+  font-weight: $font-weight-bold;
+}
+
+@mixin nunito-semi-bold {
+  font-family: $nunito;
+  font-weight: 600;
+}
+
+@mixin nunito-light {
+  font-family: $nunito;
+  font-weight: 300;
+}
+
+// colors as defined in the style guide
+$solid-color-1: #2a6077;
+$solid-color-2: #363d4c;
+$solid-color-3: #85a6ae; // TODO: this is not a color from the style guide. before using it, pls talk to maira, if it should be included in the style guide / if it's correct. Note that there are uses cases for all colors in the style guide and that's missing for this color.
+$background-color-1: #f6f6f6; // screen background
+$background-color-2: #ffffff; // main menu, tabs, grid
+$background-color-3: #fdfdfd; // tabs over grid
+$background-color-4: rgba(
+  217,
+  232,
+  251,
+  0.2668
+); // for highlighted areas and weekends
+$background-color-4-rgb: #d9e8fb; // for highlighted areas and weekends
+$background-color-5: #e2e8f0;
+$background-color-header-1: #dfe5ed; // header background / yle periods
+$background-color-header-2: #cfd6df; // header background
+$background-color-custom-1: #f7f7f7; // screen background -> missing in style guide
+$background-color-custom-2: #f5f9fe; // accordion background
+$background-color-custom-3: #e9eff5; // for alternate grid rows
+$background-color-custom-4: #f9f9f9; // for the navigation menu
+$typo-color-1: #4a4a4a; // body text input text
+$typo-color-2: #727685; // corresponding to 'labels and aditional information in styleguide'
+$typo-color-3: #ffffff; // TODO: this is not a color from the style guide.before using it, pls talk to maira, if it should be included in the style guide / if it's correct. Note that there are uses cases for all colors in the style guide and that's missing for this color.
+$typo-color-4: #a4a4a4;
+$tertiary-color-1: #85a6ae; // selected
+$tertiary-color-2: #cee2e7; // hover
+$status-color-yellow: #ffb200;
+$status-color-green: #009887;
+$status-color-lightgreen: #00dea9;
+$status-color-blue: #1153a0;
+$status-color-red: #e4003c;
+$status-color-grey: #979797;
+$status-color-orange: #ff772b;
+$status-color-transparent: #00000000;
+
+$border-color-1: rgba(149, 157, 175, 0.66); // Used for normal fields.
+$border-color-2: rgba(149, 157, 175, 0.3); // Used for readonly fields.
+$border-color-3: #66a7bb; // Used for focused/active fields.
+$border-color-4: rgba(
+  114,
+  118,
+  133,
+  0.7
+); // Used for dashed area (advance modus and resources)
+
+// colors and styles for open-link
+$active-Link-color: #296a7e;
+$inactive-Link-color: #727685;
+$link-line-height: 15px;
+
+$variation-1-1: #66a7bb;
+$variation-1-2: #3c7a94;
+$variation-1-3: #2a6077;
+$variation-1-4: #24424f;
+
+$variation-2-1: #353c42;
+$variation-2-2: #cee2e7;
+$variation-2-3: #85a6ae;
+
+// font sizes as defined in the style guide
+$font-size-heading: 20px;
+$font-size-title: 18px;
+$font-size-body-text: 16px;
+$font-size-label: 14px;
+$font-size-title-mobile: 17px;
+$font-size-body-text-mobile: 17px;
+$font-size-sub-text-mobile: 16px;
+$font-size-label-mobile: 14px;
+
+// wof css-varialbles
+$divider-variation-1: #d8d8d8;
+$divider-variation-2: #8d99ae;
+$divider-font-size-1: 3px;
+$divider-font-size-2: 1px;
+
+//custom focus styles
+$box-shadow-focus: 0px 0px 5px rgba(102, 167, 187, 0.87);
+$border-focus: 1px solid #66a7bb;
+$border-focus-2: 3px solid #66a7bb;
+$border-blur: 1px solid;
+$border-blur-2: 3px solid;
+
+// desktop h1 heading / section title
+@mixin font-heading {
+  @include nunito-bold;
+  font-size: $font-size-heading;
+  text-transform: uppercase;
+}
+
+// desktop h2 title
+@mixin font-title {
+  @include nunito-bold;
+  font-size: $font-size-title;
+}
+
+// desktop body text
+@mixin font-body-text {
+  @include nunito-regular;
+  font-size: $font-size-body-text;
+}
+
+// desktop labels
+@mixin font-labels {
+  @include nunito-light;
+  font-size: $font-size-label;
+}
+
+// mobile h1/h2 and section title
+@mixin font-title-mobile {
+  @include nunito-bold;
+  font-size: $font-size-title-mobile;
+  text-transform: uppercase;
+}
+
+// mobile body text
+@mixin font-body-text-mobile {
+  @include nunito-regular;
+  font-size: $font-size-body-text-mobile;
+}
+
+// mobile sub text
+@mixin font-sub-text-mobile {
+  @include nunito-light;
+  font-size: $font-size-sub-text-mobile;
+}
+
+// mobile labels
+@mixin font-label-mobile {
+  @include nunito-light;
+  font-size: $font-size-label-mobile;
+}
+
+// responsive font heading (h1 / section title)
+@mixin responsive-font-heading {
+  @include not-mobile {
+    @include font-heading;
+  }
+
+  @include mobile {
+    @include font-title-mobile;
+  }
+}
+
+// responsive font title (h2 title)
+@mixin responsive-font-title {
+  @include not-mobile {
+    @include font-title;
+  }
+
+  @include mobile {
+    @include font-title-mobile;
+  }
+}
+
+// responsive font body
+@mixin responsive-font-body {
+  @include not-mobile {
+    @include font-body-text;
+  }
+
+  @include mobile {
+    @include font-body-text-mobile;
+  }
+}
+
+// responsive font labels
+@mixin responsive-font-labels {
+  @include not-mobile {
+    @include font-labels;
+  }
+
+  @include mobile {
+    @include font-label-mobile;
+  }
+}
+
+// default form field styles
+@mixin form-field-padding {
+  padding: 0 12px 0 8px;
+}
+
+@mixin formField-read-only($i: null) {
+  &.readonly,
+  &.read-only,
+  //&:read-only, // dont add this checkboxes and radiobuttons are readonly by default
+  &:disabled {
+    color: $typo-color-2 $i;
+    border-color: $border-color-2 $i;
+    pointer-events: none $i;
+    background-color: transparent !important;
+  }
+}
+
+@mixin formField-focus($i: null) {
+  &:focus {
+    border-color: $border-color-3 $i;
+    box-shadow: 0 0 0 3px #66a7bb4d $i;
+  }
+}
+
+// This should be empty by default and is just used for the old ttm to ensure !important is used.
+@mixin formField($i: null) {
+  height: 32px $i;
+  line-height: 32px $i;
+  @include form-field-padding;
+  border: 1px solid $border-color-1 $i;
+  border-width: 1px $i;
+  border-radius: 2px $i;
+  color: $typo-color-1 $i;
+  box-sizing: border-box $i;
+  -webkit-box-sizing: border-box $i;
+
+  @include formField-read-only($i);
+
+  @include formField-focus($i);
+}
+
+// not from style guide
+$line-color-1: #dadfea;
+$brand: $background-color-2;
+$mobile-header-height: 56px;
+
+@mixin element-shadow {
+  box-shadow: 0px 2px 4px $typo-color-2;
+}
+
+//mixin for showing three dots when a container is overflowed
+@mixin overflow-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap !important;
+}

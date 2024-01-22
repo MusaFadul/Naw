@@ -1,0 +1,13 @@
+@import "./all-theme.import";
+
+@mixin sfc-all-themes($theme, $typography) {
+  @include all-component-theme($theme);
+  @include all-component-typography($typography);
+}
+
+@mixin sfc-all-component-theme($theme) {
+  @include sfc-footer-theme($theme);
+}
+
+@mixin sfc-all-component-typography($typography) {
+}

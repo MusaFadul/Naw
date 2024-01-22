@@ -1,0 +1,155 @@
+@use "@angular/material" as mat;
+@import "./third-party/variables.scss";
+@import "./third-party//material";
+
+$primary-main-colors-and-fonts-sfc-1: (
+  50: #e5ecef,
+  100: #bfcfd6,
+  200: #95b0bb,
+  300: #6a90a0,
+  400: #4a788b,
+  500: #2a6077,
+  600: #25586f,
+  700: #1f4e64,
+  800: #19445a,
+  900: #0f3347,
+  A100: #acabc0,
+  A200: #9196a5,
+  A400: #727685,
+  A700: #4a4a4a,
+  A900: #212121,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $typo-color-1,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+    A900: white,
+  ),
+);
+
+$secondary-background-and-highlight-sfc-2: (
+  50: #f6f8fb,
+  100: #e9eef5,
+  200: #dbe3ee,
+  300: #ccd8e7,
+  400: #c1cfe2,
+  500: #b6c7dd,
+  600: #afc1d9,
+  700: #a6bad4,
+  800: #9eb3cf,
+  900: #8ea6c7,
+  A100: #ffffff,
+  A200: #fdfdfd,
+  A400: #f6f6f6,
+  A700: #e8f5e9,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $typo-color-1,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  ),
+);
+
+$warn-secondary-and-status-colors-sfc-3: (
+  50: #fef0e5,
+  100: #fcd9bd,
+  200: #fac092,
+  300: #f7a666,
+  400: #f69345,
+  500: #f48024,
+  600: #f37820,
+  700: #f16d1b,
+  800: #ef6316,
+  900: #ec500d,
+  A100: #009887,
+  A200: #1153a0,
+  A400: #ffb200,
+  A700: #e4003c,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $typo-color-1,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  ),
+);
+
+$sfc-theme-primary: mat-palette($primary-main-colors-and-fonts-sfc-1);
+$sfc-theme-accent: mat-palette($secondary-background-and-highlight-sfc-2);
+$sfc-theme-warn: mat-palette($warn-secondary-and-status-colors-sfc-3);
+
+$theme-background: (
+  base: mat-color($sfc-theme-accent, A400),
+  // for checkbox checked mark,
+  background: mat-color($sfc-theme-accent, A100),
+  divider: $white-12-opacity,
+  dividers: $white-12-opacity,
+  disabled: $typo-color-4,
+  disabled-button: rgba(200, 200, 200, 0.38),
+  disabled-text: rgba(200, 200, 200, 0.38),
+  hint-text: rgba(200, 200, 200, 0.38),
+  secondary-text: rgba(200, 200, 200, 0.54),
+  icon: rgba(200, 200, 200, 0.54),
+  icons: rgba(200, 200, 200, 0.54),
+  text: $typo-color-1,
+  slider-min: rgba(200, 200, 200, 0.87),
+  slider-off: rgba(200, 200, 200, 0.26),
+  slider-off-active: rgba(200, 200, 200, 0.38),
+);
+
+$theme-foreground: (
+  base: mat-color($sfc-theme-primary, A700),
+  divider: mat-color($sfc-theme-primary, A700),
+  dividers: $white-12-opacity,
+  disabled: $typo-color-4,
+  disabled-button: rgba(200, 200, 200, 0.38),
+  disabled-text: rgba(200, 200, 200, 0.38),
+  hint-text: rgba(200, 200, 200, 0.38),
+  secondary-text: mat-color($sfc-theme-primary, A400),
+  icon: rgba(200, 200, 200, 0.54),
+  icons: rgba(200, 200, 200, 0.54),
+  text: $typo-color-1,
+  slider-min: rgba(200, 200, 200, 0.87),
+  slider-off: rgba(200, 200, 200, 0.26),
+  slider-off-active: rgba(200, 200, 200, 0.38),
+  elevation: black,
+);
+
+$sfc-default-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $sfc-theme-primary,
+      accent: $sfc-theme-accent,
+      warn: $sfc-theme-warn,
+    ),
+  )
+);
