@@ -1,3 +1,7 @@
-<sfc-toolbar></sfc-toolbar>
-<router-outlet></router-outlet>
+<sfc-toolbar (menuIconClick)="sfcDrawer.open()"></sfc-toolbar>
+
+<sfc-drawer #sfcDrawer>
+  <router-outlet></router-outlet>
+</sfc-drawer>
+
 <sfc-footer></sfc-footer>

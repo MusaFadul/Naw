@@ -1,5 +1,7 @@
 <mat-toolbar color="primary" class="sfc-toolbar-container">
   <button
+    *ngIf="screen.isMobile"
+    (click)="menuIconClick.emit()"
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with menu icon"

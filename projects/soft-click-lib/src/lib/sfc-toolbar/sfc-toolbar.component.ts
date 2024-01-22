@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ScreenService } from '../core/screen.service';
 
 @Component({
   selector: 'sfc-toolbar',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sfc-toolbar.component.scss'],
 })
 export class SfcToolbarComponent implements OnInit {
-  constructor() {}
+  @Output() public menuIconClick: EventEmitter<void> = new EventEmitter();
+  constructor(public screen: ScreenService) {}
 
   ngOnInit() {}
 }

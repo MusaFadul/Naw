@@ -1,0 +1,18 @@
+<mat-drawer-container
+  class="example-container"
+  autosize
+  [style.height]="'100%'"
+>
+  <mat-drawer
+    #drawer
+    class="example-sidenav"
+    mode="over"
+    [style.width]="drawerWidth"
+  >
+    slider content
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <ng-content></ng-content>
+  </div>
+</mat-drawer-container>

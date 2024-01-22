@@ -14,6 +14,14 @@ const routes: Routes = [
   { path: 'contact', component: NawContactComponent },
 ];
 
+export const Naw_Pages: any[] = [
+  NawHomeComponent,
+  NawAboutComponent,
+  NawProductsComponent,
+  NawCareersComponent,
+  NawContactComponent,
+];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
